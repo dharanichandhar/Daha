@@ -1,0 +1,25 @@
+import { route, index } from "@react-router/dev/routes";
+
+export default [
+  index("routes/home.jsx"),
+  route("products", "routes/products.jsx"),
+  route("category/:slug", "routes/category.jsx"),
+  route("men", "routes/men.jsx"),
+  route("women", "routes/women.jsx"),
+  route("kids", "routes/kids.jsx"),
+  route("product/:slug", "routes/product.jsx"),
+  route("search", "routes/search.jsx"),
+  route("cart", "routes/cart.jsx"),
+  route("checkout", "routes/checkout.jsx"),
+  route("order-success", "routes/order-success.jsx"),
+  route("wishlist", "routes/wishlist.jsx"),
+  route("login", "routes/login.jsx"),
+  route("register", "routes/register.jsx"),
+  route("forgot-password", "routes/forgot-password.jsx"),
+  route("reset-password/:token", "routes/reset-password.jsx"),
+  route("account", "routes/account.jsx"),
+  route("admin", "routes/admin.jsx"),
+  route("store", "routes/store.jsx"),
+  route("contact", "routes/contact.jsx"),
+  route("returns", "routes/returns.jsx"),
+];

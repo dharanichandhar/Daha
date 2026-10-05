@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  /* DAHA design tokens (from DESIGN.md) */
+  --color-surface: #fcf9f8;
+  --color-surface-dim: #dcd9d9;
+  --color-surface-bright: #fcf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3f2;
+  --color-surface-container: #f0eded;
+  --color-surface-container-high: #eae7e7;
+  --color-surface-container-highest: #e5e2e1;
+  --color-onsurface: #1c1b1b;
+  --color-onsurface-variant: #4f444a;
+  --color-inverse-surface: #313030;
+  --color-inverse-onsurface: #f3f0ef;
+  --color-outline: #81737a;
+  --color-outline-variant: #d3c2ca;
+  --color-surfacetint: #814e70;
+  --color-primary: #3a1030;
+  --color-onprimary: #ffffff;
+  --color-primarycontainer: #532646;
+  --color-onprimarycontainer: #c88db3;
+  --color-inverse-primary: #f3b4db;
+  --color-secondary: #814e70;
+  --color-onsecondary: #ffffff;
+  --color-secondarycontainer: #fdbce3;
+  --color-onsecondarycontainer: #7a4769;
+  --color-tertiary: #232024;
+  --color-ontertiary: #ffffff;
+  --color-tertiarycontainer: #393539;
+  --color-ontertiarycontainer: #a39da3;
+  --color-error: #ba1a1a;
+  --color-onerror: #ffffff;
+  --color-errorcontainer: #ffdad6;
+  --color-onerrorcontainer: #93000a;
+  --color-success: #1f7a45;
+  --color-onsuccess: #ffffff;
+  --color-successcontainer: #b2f0c7;
+  --color-onsuccesscontainer: #00391a;
+  --color-background: #fcf9f8;
+  --color-onbackground: #1c1b1b;
+
+  /* Editorial palette aliases used throughout the UI */
+  --color-plum: #532646;
+  --color-plum-dark: #3a1030;
+  --color-mauve: #6b3a5b;
+  --color-blush: #f7eff5;
+  --color-soot: #1a1a1a;
+  --color-charcoal: #737373;
+  --color-hairline: #e8e5e7;
+
+  --radius-base: 0.25rem;
+  --shadow-lift: 0 8px 32px rgba(83, 38, 70, 0.04);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-onsurface);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .container-daha {
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .container-daha {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-daha {
+      padding-inline: 3rem;
+    }
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .daha-form input,
+  .daha-form select,
+  .daha-form textarea {
+    width: 100%;
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-hairline);
+    background-color: var(--color-surface);
+    padding: 0.55rem 0.65rem;
+    font-size: 0.875rem;
+    color: var(--color-onsurface);
+    outline: none;
+  }
+  .daha-form input:focus,
+  .daha-form select:focus,
+  .daha-form textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+  .daha-form input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .daha-form input[type="color"] {
+    padding: 0.15rem;
+    height: 2.4rem;
+  }
+}
+
+@keyframes daha-toast-in {
+  from {
+    opacity: 0;
+    transform: translate3d(12px, -6px, 0) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes daha-instagram-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 28px rgba(58, 16, 48, 0.2), 0 0 0 0 rgba(83, 38, 70, 0.28);
+  }
+  50% {
+    box-shadow: 0 10px 28px rgba(58, 16, 48, 0.2), 0 0 0 9px rgba(83, 38, 70, 0);
+  }
+}
+
+.toast-enter {
+  animation: daha-toast-in 180ms ease-out both;
+}
+
+.instagram-float {
+  animation: daha-instagram-pulse 2.1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast-enter,
+  .instagram-float {
+    animation: none;
+  }
+}

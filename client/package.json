@@ -1,0 +1,32 @@
+{
+  "name": "daha-client",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "start": "react-router-serve ./build/server/index.js"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
+    "@react-router/node": "^7.1.5",
+    "@react-router/serve": "^7.1.5",
+    "@tanstack/react-query": "^5.66.0",
+    "isbot": "^5.1.17",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "react-router": "^7.1.5",
+    "recharts": "^2.15.0",
+    "zod": "^3.24.2",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.18.3",
+    "@tailwindcss/vite": "^4.0.6",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.0.6",
+    "vite": "^6.1.0"
+  }
+}
